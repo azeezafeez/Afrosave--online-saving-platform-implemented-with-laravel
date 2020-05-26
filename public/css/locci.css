@@ -1,0 +1,60 @@
+.bart{
+    height: 200px;
+}
+.main{
+    background-color:white !important;
+}
+.login {
+    background-color: white !important;
+    width: 100px;
+    height: 50px;
+    color: blue;
+    border: 1px solid blue; /* Green */
+    font-size: 15px;;
+  }
+
+.Register{
+ 
+
+    width: 200px;
+    height: 50px;
+
+}
+
+.rightlinks{
+    margin-left: 200px;
+}
+
+.max-row{
+    margin-top:100px;
+}
+
+.headie{
+    margin-top: 20px;
+    font-size: 30px;
+    background-color: blueviolet;
+    height: 70px;
+    border-radius: 20px;
+    padding: 10px;
+    color: white;
+}
+.right-col{
+    position: relative;
+    left: 100px;
+    top: 30px;
+}
+
+@media screen and (max-width: 760px) {
+   .headie{
+    font-size: 20px;
+   }
+
+}
+
+.classic{
+    margin-top: 30px;
+}
+
+.transfer{
+    margin-left: 400px;
+}

@@ -1,0 +1,88 @@
+.navbar.navbar-expand-lg{
+	background-color: #563D7c !important;
+}
+.navbar-brand{
+	color: white !important;
+}
+
+.nav-link{
+	color: white !important;
+}
+
+.head{
+	margin-top: 70px;
+	font-size: 60px;
+	color: #7952b3;
+	
+
+}
+
+.text{
+	font-size: 25px;
+}
+
+.bootstrap{
+	width: 595px;
+	height: 550px;
+}
+
+
+.about{
+	margin-top: 40px;
+}
+
+.about-head{
+	text-align: center;
+	color: #7952b3;
+}
+
+.about-image{
+	width: 370px;
+	height: 330px;	
+}
+
+.services{
+	padding:80px 0 80px; 
+}
+
+.service{
+	background-color: #7952b3;;
+	text-align: center;
+	color: white;
+	width: 200px;
+	height: 250px;
+}
+
+
+.database{
+	font-size: 70px !important;
+}
+    /*768px*/
+
+
+
+
+
+
+
+.team-image{
+
+	width:250px;
+	height:200px;
+	border-radius:100px; 
+	
+}
+
+.description{
+	text-align: center;
+}
+
+.footer{
+	background-color: #563D7c;
+	color: white;
+
+}
+
+.footer li{
+	list-style-type: none;
+}
