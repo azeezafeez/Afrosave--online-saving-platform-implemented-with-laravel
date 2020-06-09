@@ -4,6 +4,7 @@
 @section('content')
         <h5 class="mt-4 mb-2"><i class="fa fa-history"></i> My Transactions History</h5>
 		<div class="row classic">
+      @if(count($transactions)>0)
 			   <table class="table table-hover table-striped table-bordered">
               <thead>
                 <th>S/n</th>
@@ -20,6 +21,9 @@
                 </tr>
               @endforeach
          </table>
+      @else
+        <p>You have no transactions!</p>
+      @endif
 		</div>
         <!-- /.row -->
       
