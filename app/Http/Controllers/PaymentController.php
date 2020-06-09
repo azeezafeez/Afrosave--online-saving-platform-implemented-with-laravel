@@ -84,9 +84,21 @@ class PaymentController extends Controller
          $transaction->description="Top up for plan ". $MainPlan->plane_name; 
          $transaction->save();
 
+         $target_status= 0;
+
+        if ($plan->balance>$plan->target_amount) {
+            $target_status=1;    
+        }
+
+         $matured=0;
+        $ldate = date('Y-m-d');
+        if ($ldate>=$plan->maturity_date) {
+            $matured=1 ;
+        }
+
 
 		$amount_remaining= number_format($MainPlan->target_amount-$MainPlan->balance,2,'.',',');
-  		return view('pages.singleplan',['plan'=>$MainPlan,'rem'=>$amount_remaining,'message'=>'Payment Successful!','status'=>1]);
+  		return view('pages.singleplan',['plan'=>$MainPlan,'rem'=>$amount_remaining,'message'=>'Payment Successful!','status'=>1,'target_status'=>$target_status,'matured'=>$matured]);
 
 
 

@@ -49,7 +49,15 @@ class PlanController extends Controller
         if ($plan->balance>$plan->target_amount) {
             $target_status=1;    
         }
-        return view('pages.singleplan',['plan'=>$plan,'rem'=>$amount_remaining, 'status'=>0,'target_status'=>$target_status]);
+        $matured=0;
+        $ldate = date('Y-m-d');
+        if ($ldate>=$plan->maturity_date) {
+            $matured=1 ;
+        }
+
+       
+     
+        return view('pages.singleplan',['plan'=>$plan,'rem'=>$amount_remaining, 'status'=>0,'target_status'=>$target_status,'matured'=>$matured]);
     }
 
     public function edit(Plan $plan){
@@ -173,6 +181,9 @@ class PlanController extends Controller
 
         if ($amount=='') {
             return view("pages.withdraw",['message'=>'Enter Amount','plan'=>$plan]);
+           }
+        elseif ($plan->balance<$amount) {
+           return view("pages.withdraw",['message'=>'Insufficient funds','plan'=>$plan]); 
         }
         else{
             

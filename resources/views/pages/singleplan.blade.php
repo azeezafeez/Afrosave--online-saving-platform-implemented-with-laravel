@@ -1,3 +1,10 @@
+<style>
+  a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+</style>
 @extends("layouts.master3")
 @section('title', 'Welcome to AfroSave')
 
@@ -69,8 +76,29 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
+          @if($matured==0)
+            <div class="col-md-3 col-sm-6 col-12">
+            <a href="/withdraw/{{$plan->id}}" class="disabled" title="Plan has not matured">
+            <div class="info-box bg-secondary bart">
 
-          <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box-content">
+                <span class="info-box-number"><h2>Withdraw Fund</h2></span>
+
+                <div class="progress">
+                  <div class="progress-bar" style="width: 100%"></div>
+                </div>
+                <span class="progress-description">For discipline, you cannot <br>withdraw until your plan matures
+                </span>
+              </div>
+              </a>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          @else
+            <div class="col-md-3 col-sm-6 col-12">
             <a href="/withdraw/{{$plan->id}}">
             <div class="info-box bg-secondary bart">
 
@@ -90,6 +118,8 @@
           </div>
           <!-- /.col -->
 
+          @endif
+          
           <div class="col-md-3 col-sm-6 col-12">
             <a href="/addmoney/{{$plan->id}}">
             <div class="info-box bg-success bart">
@@ -122,7 +152,7 @@
         <hr></hr>
 
         <h6>Date Created: <span class="text-success">
-          {{$plan->created_at}}
+          {{date('jS F Y', strtotime($plan->created_at))}}
         </span></span></h4>
 
         <h6>Maturity Date: <span class="text-success">{{$plan->maturity_date}}</span></h4>
@@ -140,3 +170,5 @@
         
 
 @stop
+
+</script>

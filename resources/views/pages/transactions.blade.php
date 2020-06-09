@@ -17,7 +17,7 @@
                   <td>{{$transaction->id}}</td>
                   <td>{{$transaction->description}}</td>
                   <td>{{$transaction->amount}}</td>
-                  <td>{{$transaction->created_at}}</td>
+                  <td>{{date('jS F Y, h:i:a', strtotime($transaction->created_at))}}</td>
                 </tr>
               @endforeach
          </table>
