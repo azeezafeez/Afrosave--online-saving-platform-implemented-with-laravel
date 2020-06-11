@@ -76,7 +76,7 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          @if($matured==0)
+          @if($matured==0 and $plan->balance>0)
             <div class="col-md-3 col-sm-6 col-12">
             <a href="/withdraw/{{$plan->id}}" class="disabled" title="Plan has not matured">
             <div class="info-box bg-secondary bart">
@@ -96,7 +96,26 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
+          @elseif($plan->balance==0)
+            <div class="col-md-3 col-sm-6 col-12">
+            <a href="/withdraw/{{$plan->id}}" class="disabled" title="Plan has not matured">
+            <div class="info-box bg-secondary bart">
 
+              <div class="info-box-content">
+                <span class="info-box-number"><h2>Withdraw Fund</h2></span>
+
+                <div class="progress">
+                  <div class="progress-bar" style="width: 100%"></div>
+                </div>
+                <span class="progress-description">You have no fund <br>in this plan
+                </span>
+              </div>
+              </a>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
           @else
             <div class="col-md-3 col-sm-6 col-12">
             <a href="/withdraw/{{$plan->id}}">
@@ -155,7 +174,10 @@
           {{date('jS F Y', strtotime($plan->created_at))}}
         </span></span></h4>
 
-        <h6>Maturity Date: <span class="text-success">{{$plan->maturity_date}}</span></h4>
+        <h6>Maturity Date:
+          <span class="text-success">
+            {{date('jS F Y', strtotime($plan->maturity_date))}}
+        </span></h4>
 
         <h6>Target Amount: <span class="text-success">{{number_format($plan->target_amount,2,'.',',')}}</span></h4>
 

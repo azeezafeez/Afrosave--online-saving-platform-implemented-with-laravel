@@ -46,7 +46,7 @@ class PlanController extends Controller
         $amount_remaining= number_format($plan->target_amount-$plan->balance,2,'.',',');
         $target_status= 0;
 
-        if ($plan->balance>$plan->target_amount) {
+        if ($plan->balance>=$plan->target_amount) {
             $target_status=1;    
         }
         $matured=0;
