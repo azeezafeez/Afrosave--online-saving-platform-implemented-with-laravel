@@ -2,7 +2,17 @@
   a.disabled {
   pointer-events: none;
   cursor: default;
+  }
+
+
+@media screen and (max-width: 768px) {
+
+  .delete{
+    margin-top: 30px;
+  }
 }
+  
+
 
 </style>
 @extends("layouts.master3")
@@ -166,10 +176,15 @@
         </div>
         <!-- /.row -->
 
-        <h5 class="mt-4 mb-2">Plan Information<a href="/transfer/{{$plan->id}}"><button class="btn btn-success transfer">Transfer Fund</button></a></h5>
+       
+          
+          <div class="row blank">
+              <div class="col-md-4"> <a href="/transfer/{{$plan->id}}"><button class="btn btn-success ">Transfer Fund</button></a></div>
+              <div class="col-md-4"><a href="/delete/{{$plan->id}}"><button class="btn btn-danger delete">Delete Plan</button></a></div>
+          </div>
 
         <hr></hr>
-
+        <h5>Plan Information</h5>
         <h6>Date Created: <span class="text-success">
           {{date('jS F Y', strtotime($plan->created_at))}}
         </span></span></h4>

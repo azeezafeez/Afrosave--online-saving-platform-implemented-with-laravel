@@ -54,6 +54,9 @@ Route::get('/withdraw/{plan}', 'PlanController@withdraw')->name('withdraw');
 
 Route::post('/withdraw', 'PlanController@debit')->name('debit');
 
+Route::get('/delete/{plan}', 'PlanController@delete')->name('delete');
+
+
 });
 
 

@@ -203,6 +203,13 @@ class PlanController extends Controller
         }
     }
 
+    public function delete($plan_id){
+        $plans = Plan::find($plan_id)->delete();
+        if ($plans) {
+             return redirect()->route('homes');
+        }
+    }
+
 }
 
 
